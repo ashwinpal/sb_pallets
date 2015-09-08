@@ -1,0 +1,140 @@
+﻿@using sb_pallets.CustomHelpers
+@model sb_pallets.Models.Purchased_Order
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@Styles.Render("~/Content/themes/base/jquery.ui.autocomplete.css")
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Purchased_Order</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.vendor_id)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.vendor_id, new {id="vendor_id"})
+            @Html.ValidationMessageFor(model => model.vendor_id)
+            @Html.TextArea("vendor_addr", new{disabled = "disabled"})
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.item_id)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.item_id, new { id = "item_id" })
+            @Html.ValidationMessageFor(model => model.item_id)
+            @Html.TextArea("item_desc", new { disabled = "disabled" })
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.order_date)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.order_date)
+            @Html.ValidationMessageFor(model => model.order_date)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.request_date)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.request_date)
+            @Html.ValidationMessageFor(model => model.request_date)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.order_by_name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.order_by_name)
+            @Html.ValidationMessageFor(model => model.order_by_name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.confirm_by_name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.confirm_by_name)
+            @Html.ValidationMessageFor(model => model.confirm_by_name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.terms_days)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.terms_days)
+            @Html.ValidationMessageFor(model => model.terms_days)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ship_via)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ship_via)
+            @Html.ValidationMessageFor(model => model.ship_via)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.order_number)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.order_number)
+            @Html.ValidationMessageFor(model => model.order_number)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.item_quantity)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.item_quantity)
+            @Html.ValidationMessageFor(model => model.item_quantity)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.unit_price)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.unit_price)
+            @Html.ValidationMessageFor(model => model.unit_price)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.price_fbm)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.price_fbm)
+            @Html.ValidationMessageFor(model => model.price_fbm)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.amount)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.amount)
+            @Html.ValidationMessageFor(model => model.amount)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/custom")
+}

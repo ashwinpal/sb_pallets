@@ -33,9 +33,6 @@ namespace sb_pallets.Models
     partial void InsertCustomer_Detail(Customer_Detail instance);
     partial void UpdateCustomer_Detail(Customer_Detail instance);
     partial void DeleteCustomer_Detail(Customer_Detail instance);
-    partial void InsertItem_Detail(Item_Detail instance);
-    partial void UpdateItem_Detail(Item_Detail instance);
-    partial void DeleteItem_Detail(Item_Detail instance);
     partial void InsertPallets_Description(Pallets_Description instance);
     partial void UpdatePallets_Description(Pallets_Description instance);
     partial void DeletePallets_Description(Pallets_Description instance);
@@ -48,6 +45,9 @@ namespace sb_pallets.Models
     partial void InsertVendor_Detail(Vendor_Detail instance);
     partial void UpdateVendor_Detail(Vendor_Detail instance);
     partial void DeleteVendor_Detail(Vendor_Detail instance);
+    partial void InsertItem_Detail(Item_Detail instance);
+    partial void UpdateItem_Detail(Item_Detail instance);
+    partial void DeleteItem_Detail(Item_Detail instance);
     #endregion
 		
 		public sb_dbDataContext() : 
@@ -88,14 +88,6 @@ namespace sb_pallets.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<Item_Detail> Item_Details
-		{
-			get
-			{
-				return this.GetTable<Item_Detail>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Pallets_Description> Pallets_Descriptions
 		{
 			get
@@ -125,6 +117,14 @@ namespace sb_pallets.Models
 			get
 			{
 				return this.GetTable<Vendor_Detail>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Item_Detail> Item_Details
+		{
+			get
+			{
+				return this.GetTable<Item_Detail>();
 			}
 		}
 	}
@@ -264,120 +264,6 @@ namespace sb_pallets.Models
 		{
 			this.SendPropertyChanging();
 			entity.Customer_Detail = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Item_Detail")]
-	public partial class Item_Detail : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _item_id;
-		
-		private string _item_description;
-		
-		private EntitySet<Purchased_Order> _Purchased_Orders;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onitem_idChanging(int value);
-    partial void Onitem_idChanged();
-    partial void Onitem_descriptionChanging(string value);
-    partial void Onitem_descriptionChanged();
-    #endregion
-		
-		public Item_Detail()
-		{
-			this._Purchased_Orders = new EntitySet<Purchased_Order>(new Action<Purchased_Order>(this.attach_Purchased_Orders), new Action<Purchased_Order>(this.detach_Purchased_Orders));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_item_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int item_id
-		{
-			get
-			{
-				return this._item_id;
-			}
-			set
-			{
-				if ((this._item_id != value))
-				{
-					this.Onitem_idChanging(value);
-					this.SendPropertyChanging();
-					this._item_id = value;
-					this.SendPropertyChanged("item_id");
-					this.Onitem_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_item_description", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string item_description
-		{
-			get
-			{
-				return this._item_description;
-			}
-			set
-			{
-				if ((this._item_description != value))
-				{
-					this.Onitem_descriptionChanging(value);
-					this.SendPropertyChanging();
-					this._item_description = value;
-					this.SendPropertyChanged("item_description");
-					this.Onitem_descriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_Detail_Purchased_Order", Storage="_Purchased_Orders", ThisKey="item_id", OtherKey="item_id")]
-		public EntitySet<Purchased_Order> Purchased_Orders
-		{
-			get
-			{
-				return this._Purchased_Orders;
-			}
-			set
-			{
-				this._Purchased_Orders.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Purchased_Orders(Purchased_Order entity)
-		{
-			this.SendPropertyChanging();
-			entity.Item_Detail = this;
-		}
-		
-		private void detach_Purchased_Orders(Purchased_Order entity)
-		{
-			this.SendPropertyChanging();
-			entity.Item_Detail = null;
 		}
 	}
 	
@@ -1513,9 +1399,9 @@ namespace sb_pallets.Models
 		
 		private decimal _amount;
 		
-		private EntityRef<Item_Detail> _Item_Detail;
-		
 		private EntityRef<Vendor_Detail> _Vendor_Detail;
+		
+		private EntityRef<Item_Detail> _Item_Detail;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1553,8 +1439,8 @@ namespace sb_pallets.Models
 		
 		public Purchased_Order()
 		{
-			this._Item_Detail = default(EntityRef<Item_Detail>);
 			this._Vendor_Detail = default(EntityRef<Vendor_Detail>);
+			this._Item_Detail = default(EntityRef<Item_Detail>);
 			OnCreated();
 		}
 		
@@ -1846,40 +1732,6 @@ namespace sb_pallets.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_Detail_Purchased_Order", Storage="_Item_Detail", ThisKey="item_id", OtherKey="item_id", IsForeignKey=true)]
-		public Item_Detail Item_Detail
-		{
-			get
-			{
-				return this._Item_Detail.Entity;
-			}
-			set
-			{
-				Item_Detail previousValue = this._Item_Detail.Entity;
-				if (((previousValue != value) 
-							|| (this._Item_Detail.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Item_Detail.Entity = null;
-						previousValue.Purchased_Orders.Remove(this);
-					}
-					this._Item_Detail.Entity = value;
-					if ((value != null))
-					{
-						value.Purchased_Orders.Add(this);
-						this._item_id = value.item_id;
-					}
-					else
-					{
-						this._item_id = default(int);
-					}
-					this.SendPropertyChanged("Item_Detail");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Vendor_Detail_Purchased_Order", Storage="_Vendor_Detail", ThisKey="vendor_id", OtherKey="vendor_id", IsForeignKey=true)]
 		public Vendor_Detail Vendor_Detail
 		{
@@ -1910,6 +1762,40 @@ namespace sb_pallets.Models
 						this._vendor_id = default(int);
 					}
 					this.SendPropertyChanged("Vendor_Detail");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_Detail_Purchased_Order", Storage="_Item_Detail", ThisKey="item_id", OtherKey="item_id", IsForeignKey=true)]
+		public Item_Detail Item_Detail
+		{
+			get
+			{
+				return this._Item_Detail.Entity;
+			}
+			set
+			{
+				Item_Detail previousValue = this._Item_Detail.Entity;
+				if (((previousValue != value) 
+							|| (this._Item_Detail.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Item_Detail.Entity = null;
+						previousValue.Purchased_Orders.Remove(this);
+					}
+					this._Item_Detail.Entity = value;
+					if ((value != null))
+					{
+						value.Purchased_Orders.Add(this);
+						this._item_id = value.item_id;
+					}
+					else
+					{
+						this._item_id = default(int);
+					}
+					this.SendPropertyChanged("Item_Detail");
 				}
 			}
 		}
@@ -2046,6 +1932,120 @@ namespace sb_pallets.Models
 		{
 			this.SendPropertyChanging();
 			entity.Vendor_Detail = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Item_Detail")]
+	public partial class Item_Detail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _item_id;
+		
+		private string _item_description;
+		
+		private EntitySet<Purchased_Order> _Purchased_Orders;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onitem_idChanging(int value);
+    partial void Onitem_idChanged();
+    partial void Onitem_descriptionChanging(string value);
+    partial void Onitem_descriptionChanged();
+    #endregion
+		
+		public Item_Detail()
+		{
+			this._Purchased_Orders = new EntitySet<Purchased_Order>(new Action<Purchased_Order>(this.attach_Purchased_Orders), new Action<Purchased_Order>(this.detach_Purchased_Orders));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_item_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int item_id
+		{
+			get
+			{
+				return this._item_id;
+			}
+			set
+			{
+				if ((this._item_id != value))
+				{
+					this.Onitem_idChanging(value);
+					this.SendPropertyChanging();
+					this._item_id = value;
+					this.SendPropertyChanged("item_id");
+					this.Onitem_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_item_description", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string item_description
+		{
+			get
+			{
+				return this._item_description;
+			}
+			set
+			{
+				if ((this._item_description != value))
+				{
+					this.Onitem_descriptionChanging(value);
+					this.SendPropertyChanging();
+					this._item_description = value;
+					this.SendPropertyChanged("item_description");
+					this.Onitem_descriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_Detail_Purchased_Order", Storage="_Purchased_Orders", ThisKey="item_id", OtherKey="item_id")]
+		public EntitySet<Purchased_Order> Purchased_Orders
+		{
+			get
+			{
+				return this._Purchased_Orders;
+			}
+			set
+			{
+				this._Purchased_Orders.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Purchased_Orders(Purchased_Order entity)
+		{
+			this.SendPropertyChanging();
+			entity.Item_Detail = this;
+		}
+		
+		private void detach_Purchased_Orders(Purchased_Order entity)
+		{
+			this.SendPropertyChanging();
+			entity.Item_Detail = null;
 		}
 	}
 }

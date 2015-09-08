@@ -8,13 +8,6 @@
       <Association Name="Customer_Detail_Production_Order" Member="Production_Orders" ThisKey="id" OtherKey="customer_id" Type="Production_Order" />
     </Type>
   </Table>
-  <Table Name="dbo.Item_Detail" Member="Item_Details">
-    <Type Name="Item_Detail">
-      <Column Name="item_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="item_description" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Association Name="Item_Detail_Purchased_Order" Member="Purchased_Orders" ThisKey="item_id" OtherKey="item_id" Type="Purchased_Order" />
-    </Type>
-  </Table>
   <Table Name="dbo.Pallets_Description" Member="Pallets_Descriptions">
     <Type Name="Pallets_Description">
       <Column Name="pallets_id" Type="System.String" DbType="VarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -80,8 +73,8 @@
       <Column Name="unit_price" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
       <Column Name="price_fbm" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
       <Column Name="amount" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
-      <Association Name="Item_Detail_Purchased_Order" Member="Item_Detail" ThisKey="item_id" OtherKey="item_id" Type="Item_Detail" IsForeignKey="true" />
       <Association Name="Vendor_Detail_Purchased_Order" Member="Vendor_Detail" ThisKey="vendor_id" OtherKey="vendor_id" Type="Vendor_Detail" IsForeignKey="true" />
+      <Association Name="Item_Detail_Purchased_Order" Member="Item_Detail" ThisKey="item_id" OtherKey="item_id" Type="Item_Detail" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Vendor_Detail" Member="Vendor_Details">
@@ -89,6 +82,13 @@
       <Column Name="vendor_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="vendor_address" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
       <Association Name="Vendor_Detail_Purchased_Order" Member="Purchased_Orders" ThisKey="vendor_id" OtherKey="vendor_id" Type="Purchased_Order" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Item_Detail" Member="Item_Details">
+    <Type Name="Item_Detail">
+      <Column Name="item_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="item_description" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Item_Detail_Purchased_Order" Member="Purchased_Orders" ThisKey="item_id" OtherKey="item_id" Type="Purchased_Order" />
     </Type>
   </Table>
 </Database>

@@ -27,3 +27,4 @@ C:\Users\Ashwin\Documents\Visual Studio 2013\Projects\sb_pallets_sol\sb_pallets\
 C:\Users\Ashwin\Documents\Visual Studio 2013\Projects\sb_pallets_sol\sb_pallets\bin\System.Web.WebPages.Razor.xml
 C:\Users\Ashwin\Documents\Visual Studio 2013\Projects\sb_pallets_sol\sb_pallets\obj\Debug\sb_pallets.dll
 C:\Users\Ashwin\Documents\Visual Studio 2013\Projects\sb_pallets_sol\sb_pallets\obj\Debug\sb_pallets.pdb
+C:\Users\Ashwin\Documents\Visual Studio 2013\Projects\sb_pallets_sol\sb_pallets\obj\Debug\sb_pallets.csprojResolveAssemblyReference.cache
