@@ -1,8 +1,9 @@
 ﻿body {
-    font-size: .85em;
+    font-size: 1.25em;
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
     color: #232323;
-    background-color: #fff;
+    
+    background:#F3F3F4;
 }
 
 header, footer, nav, section {
@@ -13,28 +14,64 @@ header, footer, nav, section {
 /* Styles for basic forms
 -----------------------------------------------------------*/
 fieldset {
-    border: 1px solid #ddd;
+    background:#fff;
+   // outline: 1px solid red;
     padding: 0 1.4em 1.4em 1.4em;
     margin: 0 0 1.5em 0;
 }
 
 legend {
-    font-size: 1.2em;
-    font-weight: bold;
+    text-transform:capitalize;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:#676A6C;
+   // outline: 1px solid green;
+    //font-size: 2.5em;
+    font-weight: 100;
+}
+input:focus{
+    outline:none;
+    border-color: #1AB394 !important;
+}
+textarea:disabled {
+    background: #dddddd;
+}
+input[type="text"]{
+    
+    //margin-top:0px;
+    border: 1px solid #E5E6E7;
+}
+input[type="date"] {
+    border: 1px solid #E5E6E7;
 }
 
-textarea {
-    min-height: 75px;
+input[type="number"] {
+    border: 1px solid #E5E6E7;
+}
+textarea{
+    //font-size:1.5em;
+    border:1px solid #E5E6E7;
+    background-color:transparent;
+    margin-top:3%;
+    //border: 1px solid #000;
+   min-height: 75px;
+      width:50%;
 }
 
 .editor-label {
-    margin: 1em 0 0 0;
+   // font-size:1.5em;
+   // outline: 1px solid orange;
+    //margin: 2em 0 0 0;
+    margin-top:3em;
 }
-
+.editor-label label{
+    margin-bottom:0px;
+    font-size:1.5em;
+    color:#787B7D;
+}
 .editor-field {
-    margin: 0.5em 0 0 0;
+    //outline: 1px solid blue;
+    margin: 0 0 0 0;
 }
-
 
 /* Styles for validation helpers
 -----------------------------------------------------------*/
@@ -58,4 +95,86 @@ textarea {
 
 .validation-summary-valid {
     display: none;
+}
+/* Styles for side navigation bar
+-----------------------------------------------------------*/
+.navbar-brand>a{
+    color:#fff;
+}
+.nav-pills{
+    margin-top:1%;
+    margin-bottom:1%;
+    //background:#1AB394 !important;
+}
+.nav-pills>li>a{
+    color:#fff !important;
+}
+.nav-pills>li>a:hover{
+    color:#000 !important;
+}
+.nav-pills>li.active>a{
+    background-color:#1AB394 !important;
+}
+#name{
+    background-color:#F3F3F4;
+    text-align:center;
+    color:#99999B;
+}
+#name h2{
+    margin-top:0px !important;
+    margin-bottom:0px !important;
+    margin-bottom:0px !important;
+}
+#company-name{
+    color:#fff;
+    font-size:2em;
+    text-align:center;
+}
+#company-name:hover{
+    background-color:none !important;
+}
+#side-navigation{
+    padding:0px !important;
+}
+.navbar-default{
+   border:0px;
+}
+.navbar{
+    background-image:none !important;
+   background-color:#2F4050 !important;
+}
+.navbar-nav>li{
+    float:none !important;
+    width:250%;
+    //background:red;
+}
+.navbar-nav>li:hover{
+    background-color:#1AB394;
+}
+.navbar-nav>li>a{
+    color:#fff !important;
+    font-size:1.5em;
+}
+.navbar-nav>li>a:hover{
+    color:#fff !important;
+}
+.sidebar-nav{
+    height:auto;
+}
+
+#body{
+    padding-left:0px !important;
+}
+
+#id{
+
+}
+#item{
+    margin-top:5%;
+}
+
+.btn-primary{
+    border:0px;
+    background:#1AB394 !important;
+    color:#fff;
 }

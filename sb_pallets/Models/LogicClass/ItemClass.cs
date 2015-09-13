@@ -32,7 +32,7 @@ namespace sb_pallets.Models
 
         public Item_Detail getItemById(int id)
         {
-            var result =  objItem.Item_Details.Where(x => x.item_id == id).First();
+            var result =objItem.Item_Details.Where(x => x.item_id == id).FirstOrDefault();
 
             return result;
         }

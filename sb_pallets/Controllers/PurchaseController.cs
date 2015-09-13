@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 
 using sb_pallets.Models;
+using Rotativa;
+
 
 namespace sb_pallets.Controllers
 {
@@ -131,5 +133,23 @@ namespace sb_pallets.Controllers
         {
             return Json((Item_Detail)iobj.getItemById(id), JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult GenerateInvoice()
+        {
+            return View();
+        }
+        
+
+        public ActionResult Test()
+        {           
+            var pdfResult = new ViewAsPdf("Create")
+            {
+                FileName = "PurchaseInvoice.pdf",
+                CustomSwitches ="--footer-center \"Name: " + "S&B Pallets LTD." + "  Date: " + DateTime.Now.Date.ToString("MM/dd/yyyy") + "Page: [1]/[1]\"" +" --footer-line --footer-font-size \"9\" --footer-spacing 6 --footer-font-name \"calibri light\""
+            };
+
+           return pdfResult;            
+        }
+
     }
 }

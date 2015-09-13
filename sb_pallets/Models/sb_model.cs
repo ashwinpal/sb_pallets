@@ -72,14 +72,14 @@ namespace sb_pallets.Models
     }
 
 
-    [Bind(Exclude = "purchase_id, vendor_id, item_id, order_number, amount")]
+    [Bind(Exclude = "purchase_id, order_number, amount")]
     public class purchase_validation_model
     {
         public int purchase_id { get; set; }
 
         public int vendor_id {get; set;}
 
-        public int item_id {get; set;}
+        public List<int> item_ids { get; set; }
 
         [DisplayName("Order Date")]
         [DataType(DataType.Date)]

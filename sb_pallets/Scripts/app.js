@@ -4,15 +4,59 @@
 
     $("#item_desc").val("item desc");
 
+    var i = 1;
+
+    //var itemClicked = function (event) {
+
+    //    itemID = event.target.id;
+    //    itemDesc = itemID + "d";
+
+    //    alert(itemID);
+
+    //  //  $(itemID).keyup(function () {
+
+    //        if ($.isNumeric($(itemID).val())) {
 
 
+    //            var serviceUrl = "/Purchase/FindItem/" + $(itemID).val();
 
-    $("#item_id").keyup(function () {
+    //            console.log(serviceUrl);
 
-        if ($.isNumeric($("#item_id").val())) {
+    //            $.ajax({
+
+    //                url: serviceUrl,
+    //                success: function (data) {
+    //                    console.log(data);
+    //                    $(itemDesc).val(data["item_description"]);
+    //                }
+
+    //            });
+    //        }
+
+    //   // }).keypress();
 
 
-            var serviceUrl = "/Purchase/FindItem/" + $("#item_id").val();
+    //};
+
+    
+    $(document).on('keyup', '.citems', function () {
+
+        item = event.target
+        itemID = item.id;
+        val = item.value;
+        itemDesc = document.getElementById(itemID + "d");
+        
+        //itemDesc.value = "yes";
+
+        
+
+        console.log(itemID);
+        console.log(val);
+
+        if ($.isNumeric(val)) {
+
+
+            var serviceUrl = "/Purchase/FindItem/" + val;
 
             console.log(serviceUrl);
 
@@ -21,18 +65,33 @@
                 url: serviceUrl,
                 success: function (data) {
                     console.log(data);
-                    $("#item_desc").val(data["item_description"]);
+                    itemDesc.value=data["item_description"];
+                },
+                error: function () {
+                    console.log("error");
+                    itemDesc.value ="Does not Exist!";
                 }
-
+               
             });
         }
+        else {
+            itemDesc.value = "";
+        }
 
-}).keypress();
+    });
 
-$("#item_id").keydown(function () {
 
-   // alert("item changed");
+    $("#addItem").click(function () {
+        $("<div />", { "class": "newItems", id: "item" + i })
+           .append($("<input />", { type: "text", id: "itemid" + i, class: "citems", value: ""  }))
+           .append($("<textarea />", { id: "itemid" + i + "d", disabled: "disabled" }))
+           .append($("<input />", { type: "text", id: "itemid" + i + "q" }))
+           .append($("<input />", { type: "text", id: "itemid" + i + "u" }))
+           .append($("<input />", { type: "text", id: "itemid" + i + "p" }))
+           .append($("<input />", { type: "text", id: "itemid" + i + "a", disabled: "disabled" }))
+           .appendTo("#allItems");
+        i++;
+    });
 
-});
 
 });

@@ -1,5 +1,5 @@
-﻿@using sb_pallets.CustomHelpers
-@model sb_pallets.Models.Purchased_Order
+﻿@model sb_pallets.Models.purchase_validation_model
+
 
 @{
     ViewBag.Title = "Create";
@@ -12,141 +12,236 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="../../Content/Site.css">
+
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
- 
+<div class="col-md-12" id="nav">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Sb Pallets</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+               
+                    <ul class="nav nav-pills pull-right">
+                        <li role="presentation" class="active"><a href="/Purchase/Create">Purchase Order</a></li>
+                        <li role="presentation"><a href="/Item/Create">Item List</a></li>
+                        <li role="presentation"><a href="/Vendor/Create">Vendor List</a></li>
+                    </ul>               
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+</div>
 <div class="container">
+    <div class="row">
 
-    <h2>Create</h2>
+        
+        <div class="col-md-12" id="body">
+            <div id="name">
+                <h2>Dashboard</h2>
+            </div>@*end name*@
+            <h2>Purchase Order</h2>
 
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true)
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
 
-        <fieldset>
-            <legend>Purchase_Order</legend>
+                <fieldset>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.vendor_id)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.vendor_id, new
+                               {
+                                   id = "vendor_id",
+                                   onclick = "itemClicked(event);"
+                               })
+                                @Html.ValidationMessageFor(model => model.vendor_id)<br/>
+                                @Html.TextArea("vendor_addr", new { disabled = "disabled" })
+                            </div>
 
-            <div class="editor-label">
-                @Html.LabelFor(model => model.vendor_id)
-            </div>
-            <div class="editor-field">
-                @Html.TextBoxFor(model => model.vendor_id, new { id = "vendor_id" })
-                @Html.ValidationMessageFor(model => model.vendor_id)
-                @Html.TextArea("vendor_addr", new { disabled = "disabled" })
-            </div>
+          
 
-            <div class="editor-label">
-                @Html.LabelFor(model => model.item_id)
-            </div>
-            <div class="editor-field">
-                @Html.TextBoxFor(model => model.item_id, new { id = "item_id" })
+                            
+
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div><label>Shipping Address</label></div>
+                            <div><textarea></textarea></div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.order_date)
+                            </div>
+                            <div class="editor-field">
+
+                                @Html.ValidationMessageFor(model => model.order_date)<br/>
+                                @Html.EditorFor(model => model.order_date)
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.request_date)
+                            </div>
+                            <div class="editor-field">
+
+                                @Html.ValidationMessageFor(model => model.request_date)<br />
+                                @Html.EditorFor(model => model.request_date)
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.order_by_name)
+                        </div>
+                        <div class="editor-field">
+
+                            @Html.ValidationMessageFor(model => model.order_by_name)<br />
+                            @Html.EditorFor(model => model.order_by_name)
+                        </div>
+                        </div>
+                        <div class="col-md-3">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.confirm_by_name)
+                        </div>
+                        <div class="editor-field">
+
+                            @Html.ValidationMessageFor(model => model.confirm_by_name)<br />
+                            @Html.EditorFor(model => model.confirm_by_name)
+                        </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.terms_days)
+                            </div>
+                            <div class="editor-field">
+
+                                @Html.ValidationMessageFor(model => model.terms_days)<br />
+                                @Html.EditorFor(model => model.terms_days)
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.ship_via)
+                            </div>
+                            <div class="editor-field">
+                                @Html.ValidationMessageFor(model => model.ship_via)<br />
+                                @Html.EditorFor(model => model.ship_via)
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="editor-label">
+                               @* @Html.LabelFor(model => model.order_number)*@
+                                <label>Order Number</label>
+                            </div>
+                            <div class="editor-field">
+
+                                @Html.ValidationMessageFor(model => model.order_number)<br />
+                                @Html.EditorFor(model => model.order_number)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="item">
+                        <fieldset>
+                            <legend>Item <button type="button" id="addItem" class="btn btn-primary pull-right">Add new Item</button>   </legend>
+                            <div class="col-md-1">
+                                <div class="editor-label">
+                                    <label>Item#</label>
+                                   @* @Html.LabelFor(model => model.item_id)*@
+                                </div>
+                                <div class="editor-field">
+                                   @* @Html.TextBoxFor(model => model.item_id, new { id = "item_id" })
+                                        @Html.ValidationMessageFor(model => model.item_id)
+                                        @Html.TextArea("item_desc", new { disabled = "disabled" })*@
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="editor-label">
+                                    <label>Description</label>
+                                    @* @Html.LabelFor(model => model.item_id)*@
+                                </div>
+                                <div class="editor-field">
+                                    @* @Html.TextBoxFor(model => model.item_id, new { id = "item_id" })
                 @Html.ValidationMessageFor(model => model.item_id)
-                @Html.TextArea("item_desc", new { disabled = "disabled" })
-            </div>
+                @Html.TextArea("item_desc", new { disabled = "disabled" })*@
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                <div class="editor-label">
+                                    <label>Quantity</label>
+                                   @* @Html.LabelFor(model => model.item_quantity)*@
+                                </div>
+                                <div class="editor-field">
+                                   @* @Html.EditorFor(model => model.item_quantity)
+                                      @Html.ValidationMessageFor(model => model.item_quantity)*@
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="editor-label">
+                                    <label>Unit Price</label>
+                                    @* @Html.LabelFor(model => model.unit_price)*@
+                    </div>
+                    <div class="editor-field">
+                       @* @Html.EditorFor(model => model.unit_price)
+                       @Html.ValidationMessageFor(model => model.unit_price)*@
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="editor-label">
+                        <label>Price F.B.M</label>
+                       @* @Html.LabelFor(model => model.price_fbm)*@
+                    </div>
+                    <div class="editor-field">
+                       @* @Html.EditorFor(model => model.price_fbm)
+                        @Html.ValidationMessageFor(model => model.price_fbm)*@
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div class="editor-label">
+                        <label>Amount</label>
+                      @*  @Html.LabelFor(model => model.amount)*@
+                    </div>
+                    <div class="editor-field">
+                       @* @Html.EditorFor(model => model.amount)
+                         @Html.ValidationMessageFor(model => model.amount)*@
+                    </div>
+                </div>
 
-            <div class="editor-label">
-                @Html.LabelFor(model => model.order_date)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.order_date)
-                @Html.ValidationMessageFor(model => model.order_date)
-            </div>
+                            <div id="allItems"></div>
 
-            <div class="editor-label">
-                @Html.LabelFor(model => model.request_date)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.request_date)
-                @Html.ValidationMessageFor(model => model.request_date)
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.order_by_name)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.order_by_name)
-                @Html.ValidationMessageFor(model => model.order_by_name)
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.confirm_by_name)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.confirm_by_name)
-                @Html.ValidationMessageFor(model => model.confirm_by_name)
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.terms_days)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.terms_days)
-                @Html.ValidationMessageFor(model => model.terms_days)
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.ship_via)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.ship_via)
-                @Html.ValidationMessageFor(model => model.ship_via)
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.order_number)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.order_number)
-                @Html.ValidationMessageFor(model => model.order_number)
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.item_quantity)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.item_quantity)
-                @Html.ValidationMessageFor(model => model.item_quantity)
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.unit_price)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.unit_price)
-                @Html.ValidationMessageFor(model => model.unit_price)
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.price_fbm)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.price_fbm)
-                @Html.ValidationMessageFor(model => model.price_fbm)
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.amount)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.amount)
-                @Html.ValidationMessageFor(model => model.amount)
-            </div>
-
+            </fieldset>
+        <div class="col-md-12">
             <p>
-                <button type="button" class="btn btn-primary">Create</button>
-                <input type="submit" value="Create" />
+                <button type="submit"  class="btn btn-primary pull-left">Create</button>
+               @* <input type="submit" value="Create" />*@
             </p>
-        </fieldset>
-    }
+            </div>
+        </div>@*end row*@
+                </fieldset>
+            }
 
-    <div>
-        @Html.ActionLink("Back to List", "Index")
+        </div> @*   end row *@
+        
     </div>
-</div> @*   end row *@
+</div>
 @section Scripts {
     @Scripts.Render("~/bundles/jquery")
-   @* @Scripts.Render("~/bundles/jqueryui") *@
+    @* @Scripts.Render("~/bundles/jqueryui") *@
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/custom")
 }
