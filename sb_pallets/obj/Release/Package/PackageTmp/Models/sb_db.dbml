@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="sb_pallets" Class="sb_dbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\sb_pallets.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="sb_palletsConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Customer_Detail" Member="Customer_Details">
+    <Type Name="Customer_Detail">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="customer_id" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="address" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Customer_Detail_Production_Order" Member="Production_Orders" ThisKey="id" OtherKey="customer_id" Type="Production_Order" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Pallets_Description" Member="Pallets_Descriptions">
+    <Type Name="Pallets_Description">
+      <Column Name="pallets_id" Type="System.String" DbType="VarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="image" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="comments" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="long" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="wide" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="type" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="top_deck" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="stringer" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="bottom_deck" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="top_cut_quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="stringer_cut_quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="bottome_cut_quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fastner_id" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="fastner_lenght" Type="System.Decimal" DbType="Decimal(5,2) NOT NULL" CanBeNull="false" />
+      <Column Name="total_nail_each" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="lumber_id" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="top_wood_quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="stringer_wood_quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="bottom_wood_quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ht" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="stamp" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="color" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="tight" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="wing" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Pallets_Description_Production_Order" Member="Production_Orders" ThisKey="pallets_id" OtherKey="pallets_id" Type="Production_Order" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Production_Order" Member="Production_Orders">
+    <Type Name="Production_Order">
+      <Column Name="order_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="customer_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="order_quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="production_quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ship_quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="balance_quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="start_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="due_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="start_time" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="end_time" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="total_hours" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="order_notes" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pallets_id" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="Customer_Detail_Production_Order" Member="Customer_Detail" ThisKey="customer_id" OtherKey="id" Type="Customer_Detail" IsForeignKey="true" />
+      <Association Name="Pallets_Description_Production_Order" Member="Pallets_Description" ThisKey="pallets_id" OtherKey="pallets_id" Type="Pallets_Description" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Purchased_Order" Member="Purchased_Orders">
+    <Type Name="Purchased_Order">
+      <Column Name="purchase_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="vendor_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="item_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="order_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="request_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="order_by_name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="confirm_by_name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="terms_days" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ship_via" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="order_number" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="item_quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="unit_price" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="price_fbm" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="amount" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Association Name="Vendor_Detail_Purchased_Order" Member="Vendor_Detail" ThisKey="vendor_id" OtherKey="vendor_id" Type="Vendor_Detail" IsForeignKey="true" />
+      <Association Name="Item_Detail_Purchased_Order" Member="Item_Detail" ThisKey="item_id" OtherKey="item_id" Type="Item_Detail" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Vendor_Detail" Member="Vendor_Details">
+    <Type Name="Vendor_Detail">
+      <Column Name="vendor_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="vendor_address" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Vendor_Detail_Purchased_Order" Member="Purchased_Orders" ThisKey="vendor_id" OtherKey="vendor_id" Type="Purchased_Order" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Item_Detail" Member="Item_Details">
+    <Type Name="Item_Detail">
+      <Column Name="item_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="item_description" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Item_Detail_Purchased_Order" Member="Purchased_Orders" ThisKey="item_id" OtherKey="item_id" Type="Purchased_Order" />
+    </Type>
+  </Table>
+</Database>

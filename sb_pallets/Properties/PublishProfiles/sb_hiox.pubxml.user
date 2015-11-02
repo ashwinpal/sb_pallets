@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAygzBmszhLUaRpQVmkwMIbAAAAAACAAAAAAAQZgAAAAEAACAAAACpUuXbffT4/nCERZkCdP3ND1WwHxfwbGE4lDKLSR0+MwAAAAAOgAAAAAIAACAAAAAFBZkyx9fWH8KDzQ94OCtSqEMqJx2mpS6YJm6wbh33YSAAAACBhIUqitsxToMakZOeP8dUKtaj1D9H+3ZkPNo1VbRYSEAAAADOsItXLK4W4F5kXjkXim4U3A3RzQiDFRZMHGc7a8Ck35R/A1JDPe0VekWqNJ2gjdrTnziELMW3FV3sZ6qSFvRf</EncryptedPassword>
+    <_PublishTargetUrl>ftp://50.28.66.14/httpdocs/sbpallets</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="App_Browsers/qt.browser">
+      <publishTime>09/12/2015 16:20:28</publishTime>
+    </File>
+    <File Include="App_Data/sb_pallets.mdf">
+      <publishTime>09/13/2015 15:32:05</publishTime>
+    </File>
+    <File Include="App_Data/sb_pallets_log.ldf">
+      <publishTime>09/13/2015 15:32:05</publishTime>
+    </File>
+    <File Include="App_Data/script.sql">
+      <publishTime>08/29/2015 13:09:50</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>08/13/2015 21:54:50</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>08/13/2015 21:54:38</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CSharp.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>08/13/2015 21:54:46</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Mvc.FixedDisplayModes.dll">
+      <publishTime>08/13/2015 21:54:48</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>10/02/2013 11:10:10</publishTime>
+    </File>
+    <File Include="bin/Rotativa.dll">
+      <publishTime>09/12/2015 16:20:28</publishTime>
+    </File>
+    <File Include="bin/sb_pallets.dll">
+      <publishTime>11/01/2015 19:46:50</publishTime>
+    </File>
+    <File Include="bin/System.ComponentModel.DataAnnotations.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Configuration.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Data.DataSetExtensions.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Data.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Data.Entity.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Data.Linq.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/System.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Drawing.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/System.EnterpriseServices.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.dll">
+      <publishTime>07/10/2012 11:07:38</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>08/13/2015 21:54:48</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.WebRequest.dll">
+      <publishTime>07/10/2012 11:07:38</publishTime>
+    </File>
+    <File Include="bin/System.Web.Abstractions.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.ApplicationServices.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.DynamicData.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.Entity.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.Extensions.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>08/13/2015 21:54:49</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>08/13/2015 21:54:49</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>08/13/2015 21:54:48</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>08/13/2015 21:54:50</publishTime>
+    </File>
+    <File Include="bin/System.Web.Providers.dll">
+      <publishTime>08/13/2015 21:54:49</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>08/13/2015 21:54:47</publishTime>
+    </File>
+    <File Include="bin/System.Web.Routing.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.Services.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>08/13/2015 21:54:47</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>08/13/2015 21:54:47</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>08/13/2015 21:54:47</publishTime>
+    </File>
+    <File Include="bin/System.Xml.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Xml.Linq.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>08/13/2015 21:54:50</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>09/14/2015 18:55:03</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>08/13/2015 21:54:36</publishTime>
+    </File>
+    <File Include="Models/sb_db.dbml">
+      <publishTime>09/07/2015 07:52:11</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>09/12/2015 16:20:32</publishTime>
+    </File>
+    <File Include="Rotativa/wkhtmltopdf.exe">
+      <publishTime>09/12/2015 16:20:28</publishTime>
+    </File>
+    <File Include="Scripts/app.js">
+      <publishTime>09/12/2015 21:36:22</publishTime>
+    </File>
+    <File Include="Scripts/jquery-2.1.4.js">
+      <publishTime>09/12/2015 16:03:49</publishTime>
+    </File>
+    <File Include="Scripts/jquery-2.1.4.min.js">
+      <publishTime>09/12/2015 16:03:49</publishTime>
+    </File>
+    <File Include="Scripts/jquery-2.1.4.min.map">
+      <publishTime>09/12/2015 16:03:49</publishTime>
+    </File>
+    <File Include="Scripts/jquery.unobtrusive-ajax.js">
+      <publishTime>08/13/2015 21:54:45</publishTime>
+    </File>
+    <File Include="Scripts/jquery.unobtrusive-ajax.min.js">
+      <publishTime>08/13/2015 21:54:45</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>08/13/2015 21:54:43</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>08/13/2015 21:54:43</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>08/13/2015 21:54:45</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>08/13/2015 21:54:45</publishTime>
+    </File>
+    <File Include="Scripts/knockout-2.2.0.debug.js">
+      <publishTime>08/13/2015 21:54:51</publishTime>
+    </File>
+    <File Include="Scripts/knockout-2.2.0.js">
+      <publishTime>08/13/2015 21:54:51</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.6.2.js">
+      <publishTime>08/13/2015 21:54:45</publishTime>
+    </File>
+    <File Include="Scripts/_references.js">
+      <publishTime>09/12/2015 16:03:50</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>09/14/2015 19:02:30</publishTime>
+    </File>
+    <File Include="Views/Item/Create.cshtml">
+      <publishTime>09/13/2015 20:03:09</publishTime>
+    </File>
+    <File Include="Views/Production/Index.cshtml">
+      <publishTime>10/18/2015 18:56:18</publishTime>
+    </File>
+    <File Include="Views/Purchase/Create.cshtml">
+      <publishTime>10/04/2015 12:55:00</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>08/13/2015 21:54:36</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>08/13/2015 21:54:36</publishTime>
+    </File>
+    <File Include="Views/Vendor/Create.cshtml">
+      <publishTime>09/13/2015 20:03:00</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>09/13/2015 07:31:13</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>08/13/2015 21:54:36</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>09/13/2015 18:53:38</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

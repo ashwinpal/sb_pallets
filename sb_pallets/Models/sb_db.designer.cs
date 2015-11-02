@@ -128,8 +128,8 @@ namespace sb_pallets.Models
 			}
 		}
 	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Customer_Detail")]
+
+    [global::System.Data.Linq.Mapping.TableAttribute(Name = "ashwin.Customer_Detail")]
 	public partial class Customer_Detail : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -266,8 +266,8 @@ namespace sb_pallets.Models
 			entity.Customer_Detail = null;
 		}
 	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Pallets_Description")]
+
+    [global::System.Data.Linq.Mapping.TableAttribute(Name = "ashwin.Pallets_Description")]
 	public partial class Pallets_Description : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -932,8 +932,8 @@ namespace sb_pallets.Models
 			entity.Pallets_Description = null;
 		}
 	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Production_Order")]
+
+    [global::System.Data.Linq.Mapping.TableAttribute(Name = "ashwin.Production_Order")]
 	public partial class Production_Order : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -1364,8 +1364,8 @@ namespace sb_pallets.Models
 			}
 		}
 	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Purchased_Order")]
+
+    [global::System.Data.Linq.Mapping.TableAttribute(Name = "ashwin.Purchased_Order")]
 	public partial class Purchased_Order : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -1820,8 +1820,8 @@ namespace sb_pallets.Models
 			}
 		}
 	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Vendor_Detail")]
+
+    [global::System.Data.Linq.Mapping.TableAttribute(Name = "ashwin.Vendor_Detail")]
 	public partial class Vendor_Detail : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -1935,7 +1935,7 @@ namespace sb_pallets.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Item_Detail")]
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="ashwin.Item_Detail")]
 	public partial class Item_Detail : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		

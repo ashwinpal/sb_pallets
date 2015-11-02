@@ -1,0 +1,315 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="@Url.Content("~/Content/Site.css")">
+@* google fonts *@
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
+
+<div class="container" id="production">
+
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 heading"><h2>S &amp; B Production Order</h2></div>
+    </div>
+
+    <div class="row marginTop">
+        <div class="col-md-3">
+            <label>P.O #</label>
+            <input type="text" />
+        </div>
+        <div class="col-md-3 col-md-offset-6">
+            <label>ORDER #</label>
+            <input type="text" />
+        </div>
+    </div>
+
+    <div class="row marginTop">
+        <div class="col-md-6" id="customerCol">
+            <div class="marginTop">
+                <label class="col-md-4">Customer ID: </label>
+                <input type="text" />
+            </div>
+            <div class="marginTop">
+                <label class="col-md-4">Customer: </label>
+                <input type="text" />
+            </div>
+            <div class="marginTop">
+                <label class="col-md-4">Order Qty </label>
+                <input type="text" />
+            </div>
+            <div class="marginTop">
+                <label class="col-md-4">Production Qty </label>
+                <input type="text" />
+            </div>
+            <div class="marginTop">
+                <label class="col-md-4">Ship Qty </label>
+                <input type="text" />
+            </div>
+            <div class="marginTop">
+                <label class="col-md-4">Balance </label>
+                <input type="text" readonly />
+            </div>
+        </div>
+        <div class="col-md-5" id="timeCol">
+            <div class="marginTop">
+                <label class="col-md-4">Date: </label>
+                <input type="text" />
+            </div>
+            <div class="marginTop">
+                <label class="col-md-4">Due Date: </label>
+                <input type="text" /><br /><br /><br />
+            </div>
+            <div class="marginTop">
+                <label class="col-md-4">Start Time: </label>
+                @*<input type="text" />*@ <br />
+            </div>
+            <div class="marginTop">
+                <label class="col-md-4">End Time: </label>
+                @*<input type="text" />*@ <br />
+            </div>
+            <div class="marginTop">
+                <label class="col-md-4">Total Hours: </label>
+                @*<input type="text" />*@ <br />
+            </div>
+        </div>
+    </div>
+    <div class="row marginTop note">
+        <div class="col-md-1">
+            <label>NOTE</label>
+        </div>
+        <div class="col-md-11">
+            <textarea placeholder="Write any note here."></textarea>
+        </div>
+    </div>
+
+    <div class="row marginTop" id="pm">
+        <div class="col-md-6" id="pallets">
+            <h2>Pallet Description</h2>
+            <div class="row boderBottom">
+                <div class="col-md-6">
+                    <div class="marginTop">
+                        <label class="col-md-6">Pallets ID</label>
+                        <input type="text" />
+                    </div>
+                    <div class="marginTop">
+                        <label class="col-md-6">Pallets Size</label>
+                        <input type="text" />
+                    </div>
+                    <div class="marginTop">
+                        <label class="col-md-6">Long</label>
+                        <input type="text" />
+                    </div>
+                    <div class="marginTop">
+                        <label class="col-md-6">Wide</label>
+                        <input type="text" />
+                    </div>
+                    <div class="marginTop">
+                        <label class="col-md-6">Type</label>
+                        <input type="text" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="marginTop">
+                        <label class="col-md-6">HT</label>
+                        <input type="text" />
+                    </div>
+                    <div class="marginTop">
+                        <label class="col-md-6">Stamp</label>
+                        <input type="text" />
+                    </div>
+                    <div class="marginTop">
+                        <label class="col-md-6">Color</label>
+                        <input type="text" />
+                    </div>
+                    <div class="marginTop">
+                        <label class="col-md-6">Tight</label>
+                        <input type="text" />
+                    </div>
+                    <div class="marginTop">
+                        <label class="col-md-6">Wing</label>
+                        <input type="text" />
+                    </div>
+                </div>
+            </div>
+            <div class="row marginTop boderBottom">
+                <div class="col-md-3">
+                    <label>Top Deck :</label>
+                </div>
+                <div class="col-md-5">
+                    <label>Sizes</label>
+                    <input type="text" />
+                </div>
+                <div class="col-md-4">
+                    <label>Wood</label>
+                </div>
+            </div>
+            <div class="row marginTop boderBottom">
+                <div class="col-md-3">
+                    <label>Stringer :</label>
+                </div>
+                <div class="col-md-5">
+                    <label>Sizes</label>
+                    <input type="text" />
+                </div>
+                <div class="col-md-4">
+                    <label>Wood</label>
+                </div>
+            </div>
+            <div class="row marginTop boderBottom">
+                <div class="col-md-3">
+                    <label>Bottom Deck :</label>
+                </div>
+                <div class="col-md-5">
+                    <label>Sizes</label>
+                    <input type="text" />
+                </div>
+                <div class="col-md-4">
+                    <label>Wood</label>
+                </div>
+            </div>
+            <div class="row marginTop boderBottom">
+                <div class="col-md-3">
+                    <label>Block :</label>
+                </div>
+                <div class="col-md-5">
+                    <label>Sizes</label>
+                    <input type="text" />
+                </div>
+                <div class="col-md-4">
+                    <label>Wood</label>
+                </div>
+            </div>
+            <div class="row marginTop" style="background-color:orangered">
+                <div class="col-md-12">
+                    <label>Image</label><br />
+                    <label>D.S</label>
+                </div>
+            </div>
+            </div>
+        <div class="col-md-6" id="materials">
+            <h2>Materials</h2>
+            <div class="row boderBottom">
+                <div class="marginTop">
+                    <label class="col-md-6 marginTop">Fasteners</label>
+                </div>
+                <div class="marginTop">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Mast Fasteners</th>
+                                <th>Block Fasteners</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Fasteners Id</td>
+                                <td><input type="text" /></td>
+                                <td><input type="text" /></td>
+                            </tr>
+                            <tr>
+                                <td>Faste. Length</td>
+                                <td><input type="text" /></td>
+                                <td><input type="text" /></td>
+                            </tr>
+                            <tr>
+                                <td>Total Nail Each</td>
+                                <td><input type="text" /></td>
+                                <td><input type="text" /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="marginTop">
+                    <div class="marginTop">
+                        <lable class="marginTop" style="padding-left:10px;">Total Nails : </lable>
+                        <span id="totalNails" style="color: white;"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row boderBottom">
+                <div class="col-md-12 marginTop">
+                    <label class="marginTop">New Lumber</label>
+                </div>
+                <div class="col-md-6 marginTop">
+                    <label class="marginTop" style="padding-left:10px;">Lumber ID : </label>
+                    <input type="text" />
+                </div>
+                <div class="col-md-6 marginTop">
+                    <label class="marginTop" style="padding-left:10px;">Lu Type : </label>
+                    <input type="text" />
+                </div>
+                <div class="col-md-6 marginTop">
+                    <label class="marginTop" style="padding-left:10px;">H.T. Lumber P.O : </label>
+                    @*<input type="text" />*@
+                </div>
+            </div>
+            <div class="row boderBottom">
+                <div class="col-md-12 marginTop">
+                    <label class="marginTop">Production Order Cut list</label>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Regular </th>
+                            <th>Size </th>
+                            <th>Order Qty </th>
+                            <th>Cut-Qty</th>
+                            <th>Balance</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td>Top Deck</td>
+                        <td><input type="text" /></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Stringer</td>
+                        <td><input type="text" /></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Bottom Deck</td>
+                        <td><input type="text" /></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Block</td>
+                        <td>Size</td>
+                        <td>Quantity</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+                </div>
+               
+            </div>
+            <div class="row">
+                
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</div>
